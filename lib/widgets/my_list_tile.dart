@@ -3,7 +3,6 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:notes_application/screens/task_editor.dart';
 import '../models/task_model.dart';
 
-//دي اللي بتعمل شكل التاسك بتاعي في الشاشة الرئيسية
 
 class MyListTile extends StatefulWidget {
   MyListTile(this.task, this.index, {Key? key}) : super(key: key);
