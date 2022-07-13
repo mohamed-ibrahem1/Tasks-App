@@ -28,12 +28,15 @@ class _TaskEditorState extends State<TaskEditor> {
         iconTheme: IconThemeData(
           color: HexColor('292a35'),
         ),
-        title: Text(
-          widget.task == null ? 'New task' : 'Update task',
-          style: TextStyle(
-            color: HexColor('292a35'),
-            fontSize: 30,
-            fontWeight: FontWeight.w900,
+        title: Align(
+          alignment: const Alignment(-1.30,0),
+          child: Text(
+            widget.task == null ? 'New task' : 'Update task',
+            style: TextStyle(
+              color: HexColor('292a35'),
+              fontSize: 30,
+              fontWeight: FontWeight.w900,
+            ),
           ),
         ),
       ),

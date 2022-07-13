@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:notes_application/screens/task_editor.dart';
 import '../models/task_model.dart';
@@ -57,7 +58,7 @@ class _MyListTileState extends State<MyListTile> {
                     widget.task.delete();
                   },
                   icon: Icon(
-                    Icons.cancel,
+                    FontAwesomeIcons.circleXmark,
                     color: HexColor('ececec'),
                     size: 30,
                   ),

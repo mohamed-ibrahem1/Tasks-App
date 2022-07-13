@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_application/models/task_model.dart';
+import 'package:notes_application/screens/search_screen.dart';
 import 'package:notes_application/widgets/my_list_tile.dart';
 import 'screens/task_editor.dart';
 
@@ -49,15 +52,43 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: HexColor('141318'),
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: HexColor('#fee4db'),
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: HexColor('292a35'),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchScreen(),
+                  ),
+                );
+              },
+              icon: Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: HexColor('#fee4db'),
+                size: 25,
+              ),
+            ),
+          ),
+        ],
         backgroundColor: HexColor('#fee4db'),
         elevation: 0.0,
-        title:  Text(
+        title: Text(
           'Tasks',
           style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.w900,
-            color: HexColor('292a35')
-          ),
+              fontSize: 40,
+              fontWeight: FontWeight.w900,
+              color: HexColor('292a35')),
         ),
       ),
       body: ValueListenableBuilder<Box<Task>>(
@@ -73,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                 //ال Expanded
                 //لو كان ابن لازم يكون ابت للي جي دة و بس عشان ميعملش معاك ايرور
                 //Row(), Column(), Flex()
-                //ودول بيتسموا 
+                //ودول بيتسموا
                 // Parent Widget
                 Expanded(
                   child: ListView.builder(
@@ -115,8 +146,8 @@ class _HomePageState extends State<HomePage> {
             );
           },
           child: const Icon(
-            Icons.add,
-            size: 35,
+            FontAwesomeIcons.plus,
+            size: 40,
             color: Colors.black,
           ),
         ),
